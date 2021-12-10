@@ -726,15 +726,7 @@ or it is followed by line end.")
 (defun plantuml-indent-line ()
   "Indent the current line to its desired indentation level.
 Restore point to same position in text of the line as before indentation."
-  (interactive)
-  ;; store position of point in line measured from end of line
-  (let ((original-position-eol (- (line-end-position) (point))))
-    (save-excursion
-      (beginning-of-line)
-      (indent-line-to (* plantuml-indent-level (plantuml-current-block-depth))))
-
-    ;; restore position in text of line
-    (goto-char (- (line-end-position) original-position-eol))))
+  ())
 
 
 ;;;###autoload
