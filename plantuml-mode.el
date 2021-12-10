@@ -432,12 +432,8 @@ Put the result into buffer BUF.  Window is selected according to PREFIX:
 (defun plantuml-encode-data (string)
   "Encode string STRING according to the `plantuml-server-encoding'."
   ;; handle only simple HEX encoding
-  (plantuml-hexlify string)
-  ;;
-  ;; base64
-  ;;(let ((coding-system (or buffer-file-coding-system "utf8")))
-  ;;   (base64-encode-string (encode-coding-string string coding-system) t)))
-  )
+  (let ((coding-system (or buffer-file-coding-system "utf8")))
+    (plantuml-hexlify (encode-coding-string string coding-system))))
 
 (defun plantuml-server-encode-url (string)
   "Encode the string STRING into a URL suitable for PlantUML server interactions."
