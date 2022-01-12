@@ -499,6 +499,7 @@ to choose where to display it."
          (coding-system-for-read (and imagep 'binary))
          (coding-system-for-write (and imagep 'binary)))
     (with-current-buffer buf
+      (image-mode)
       (image-toggle-display-text)
       (erase-buffer))
     (plantuml-exec-mode-preview-string prefix (plantuml-get-exec-mode) string buf)))
